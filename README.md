@@ -1,3 +1,8 @@
+Berisi jawaban seluruh tugas2 (scroll ke bawah)
+
+
+Tugas 7
+
 1. 
 
 Widget tree adalah struktur hierarki dari semua widget yang membentuk tampilan (UI) aplikasi Flutter.
@@ -142,3 +147,24 @@ Kapan digunakan:
 
 - Ketika perubahan dilakukan pada kode non-UI, seperti variabel global, inisialisasi data, atau struktur aplikasi.
 - Saat ingin mengembalikan aplikasi ke kondisi awal tanpa menutup emulator.
+
+
+Tugas 8 
+
+1. Perbedaan antara Navigator.push() dan Navigator.pushReplacement()
+
+Navigator.push() menambahkan halaman baru ke tumpukan navigasi sehingga pengguna masih bisa kembali ke halaman sebelumnya. Sementara itu, Navigator.pushReplacement() menggantikan halaman saat ini dengan halaman baru dan menghapus halaman sebelumnya dari tumpukan, sehingga pengguna tidak bisa kembali. 
+
+Dalam aplikasi soccer commerce, Navigator.push() cocok digunakan saat berpindah dari halaman daftar produk ke halaman detail produk agar pengguna bisa kembali. Sedangkan Navigator.pushReplacement() cocok digunakan setelah login atau setelah checkout agar pengguna tidak bisa kembali ke halaman sebelumnya.
+
+2. Pemanfaatan hierarchy widget (Scaffold, AppBar, Drawer)
+
+Scaffold berfungsi sebagai kerangka utama setiap halaman yang menyediakan struktur standar seperti area konten, app bar, dan drawer. AppBar digunakan untuk menampilkan judul halaman serta ikon aksi seperti keranjang atau pencarian, sedangkan Drawer menjadi tempat navigasi utama antarhalaman.
+
+3. Kelebihan layout widget seperti Padding, SingleChildScrollView, dan ListView
+
+Padding membantu menjaga jarak antar elemen agar tampilan form rapi dan mudah dibaca. SingleChildScrollView memungkinkan pengguna menggulir layar jika isi form melebihi tinggi layar, sehingga form tetap mudah diakses di berbagai perangkat. ListView digunakan untuk menampilkan daftar elemen secara efisien, seperti daftar produk atau pesanan. Dalam soccer commerce, kombinasi ketiganya membuat tampilan form, katalog, dan daftar pesanan lebih nyaman, responsif, dan rapi.
+
+4. Penyesuaian warna tema untuk identitas visual Football Shop
+
+Penyesuaian warna tema dilakukan melalui pengaturan warna utama, sekunder, latar belakang, dan teks yang konsisten di seluruh aplikasi. Dengan menentukan warna khas—misalnya hijau tua untuk menonjolkan kesan sporty dan energi khas dunia sepak bola, identitas visual soccer commerce menjadi kuat dan mudah dikenali. Warna tema yang konsisten juga meningkatkan profesionalitas dan kenyamanan pengguna saat berinteraksi dengan aplikasi.
