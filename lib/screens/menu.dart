@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:soccer_commerce/screens/productlist_form.dart';
 import 'package:soccer_commerce/widgets/left_drawer.dart';
+import 'package:soccer_commerce/widgets/product_card.dart';
+import 'package:soccer_commerce/screens/product_entry_list.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:soccer_commerce/screens/login.dart';
+
+
 
 class MyHomePage extends StatelessWidget {
     MyHomePage({super.key});
@@ -13,6 +20,7 @@ class MyHomePage extends StatelessWidget {
         ItemHomepage("All Product", Icons.all_inbox),
         ItemHomepage("My Product", Icons.playlist_add_check_rounded),
         ItemHomepage("Create Product", Icons.add),
+        ItemHomepage("Logout", Icons.logout),
       ];
 
     @override
@@ -118,7 +126,7 @@ class ItemCard extends StatelessWidget {
     } else if (item.name == "Create Product") {
       backgroundColor = Colors.red;
     } else {
-      backgroundColor = Theme.of(context).colorScheme.secondary; 
+      backgroundColor = Theme.of(context).colorScheme.secondary;
     }
 
     return Material(
@@ -126,20 +134,40 @@ class ItemCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
 
       child: InkWell(
-        onTap: () {
+        onTap: () async {    
           if (item.name == "Create Product") {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const ProductFormPage()),
             );
-          } else {
+
+          } else if (item.name == "All Product") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductEntryListPage()),
+            );
+
+          } else if (item.name == "Logout") {
+            final request = context.read<CookieRequest>();
+
+            await request.logout("http://127.0.0.1:8000/auth/logout/");
+
+           if (context.mounted) {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginPage()),
+              (route) => false,
+            );
+
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(
-                SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!")),
+                const SnackBar(content: Text("Logout berhasil!")),
               );
           }
+          }
         },
+
         child: Container(
           padding: const EdgeInsets.all(8),
           child: Center(

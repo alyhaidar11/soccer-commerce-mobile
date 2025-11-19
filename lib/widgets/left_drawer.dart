@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soccer_commerce/screens/menu.dart';
 import 'package:soccer_commerce/screens/Productlist_form.dart';
+import 'package:soccer_commerce/screens/product_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -66,7 +67,7 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => ProductEntryListPage()),
               );
             },
           ),
